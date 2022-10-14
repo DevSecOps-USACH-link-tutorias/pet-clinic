@@ -38,3 +38,19 @@ steps:
     projectName: 'pet-clinic'
     scanPath: '$(Build.SourcesDirectory)/build/libs'
     format: 'HTML'
+
+- task: DockerInstaller@0
+  inputs:
+    dockerVersion: '17.09.0-ce'
+
+- task: Docker@2
+  inputs:
+    containerRegistry: 'docker'
+    command: 'login'
+
+- task: Docker@2
+  inputs:
+    containerRegistry: 'docker'
+    command: 'build'
+    Dockerfile: '**/Dockerfile'
+    tags: 'latest'
