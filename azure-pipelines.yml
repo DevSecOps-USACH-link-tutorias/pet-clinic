@@ -51,6 +51,7 @@ steps:
 - task: Docker@2
   inputs:
     containerRegistry: 'docker'
+    repository: 'ahernandezt/pet-clinic'
     command: 'build'
     Dockerfile: '**/Dockerfile'
     tags: 'latest'
